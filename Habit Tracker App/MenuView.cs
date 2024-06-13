@@ -1,8 +1,12 @@
-﻿namespace Habit_Tracker_App
+﻿using Habit_Tracker_App.Data;
+using Habit_Tracker_App.View;
+using System.Collections.Generic;
+
+namespace Habit_Tracker_App
 {
     public static class MenuView
     {
-        public static void DisplayMainMenu()
+        public static void DisplayMainMenu(HabitController habitController)
         {
             bool exitMenu = false;
             string menuSelection = "";
@@ -28,12 +32,14 @@
                 switch (menuSelection)
                 {
                     case "1":
+                        habitController.InsertHabit();
                         break;
                     case "2":
                         break;
                     case "3":
                         break;
                     case "4":
+                        habitController.GetHabits();
                         break;
                     case "0":
                         exitMenu = true;
