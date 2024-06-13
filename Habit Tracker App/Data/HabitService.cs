@@ -21,6 +21,11 @@ namespace Habit_Tracker_App.Data
             _repository.DeleteHabitRecord(habitId);
         }
 
+        public bool HabitExists(int id)
+        {
+            return _repository.HabitExists(id);
+        }
+
         public void UpdateHabit(Habit habit)
         {
             _repository.UpdateHabit(habit);

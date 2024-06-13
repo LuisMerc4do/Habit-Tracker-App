@@ -2,23 +2,15 @@
 {
     public static class DeleteHabitView
     {
-        public static Habit InsertHabitDetails()
+        public static int DeleteHabitRecord()
         {
-            Console.WriteLine("Enter the Habit name you want to delete:");
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Enter the times you have done this habit today:");
-            int quantity;
-            if (!int.TryParse(Console.ReadLine(), out quantity))
+            Console.WriteLine("Enter the Habit ID you want to delete:");
+            int id;
+            if (!int.TryParse(Console.ReadLine(), out id))
             {
-                Console.WriteLine("Invalid quantity. Please enter a number.");
+                Console.WriteLine("Invalid Input. Please enter a number.");
             }
-
-            return new Habit
-            {
-                Name = name,
-                Quantity = quantity
-            };
+            return id;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Habit_Tracker_App.Data;
+using Habit_Tracker_App.View;
 
 namespace Habit_Tracker_App
 {

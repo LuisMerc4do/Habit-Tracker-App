@@ -15,7 +15,6 @@ namespace Habit_Tracker_App.Data
         {
             var habit = View.InsertHabitView.InsertHabitDetails();
             _habitService.AddHabit(habit);
-            Console.WriteLine("Habit added successfully.");
         }
 
         public void GetHabits()
@@ -24,16 +23,30 @@ namespace Habit_Tracker_App.Data
             View.GetHabitsView.DisplayHabits(habits);
         }
 
-        public void DeleteHabit(int habitId)
+        public void DeleteHabit()
         {
-            _habitService.DeleteHabitRecord(habitId);
-            Console.WriteLine("Habit deleted successfully.");
+            _habitService.DeleteHabitRecord(View.DeleteHabitView.DeleteHabitRecord()); 
         }
 
-        public void UpdateHabit(Habit habit)
+        public void UpdateHabit()
         {
-            _habitService.UpdateHabit(habit);
-            Console.WriteLine("Habit updated successfully.");
+            Console.WriteLine("Enter the ID of the habit you want to update:");
+            if (int.TryParse(Console.ReadLine(), out int id))
+            {
+                var existingHabit = _habitService.GetHabits().FirstOrDefault(h => h.Id == id);
+                if (existingHabit == null)
+                {
+                    Console.WriteLine($"Habit with ID {id} not found.");
+                    return;
+                }
+
+                var updatedHabit = View.UpdateHabitView.UpdateHabitDetails(existingHabit);
+                _habitService.UpdateHabit(updatedHabit);
+            }
+            else
+            {
+                Console.WriteLine("Invalid ID. Please enter a valid number.");
+            }
         }
     }
 }

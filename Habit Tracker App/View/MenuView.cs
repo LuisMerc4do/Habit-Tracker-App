@@ -1,8 +1,7 @@
 ﻿using Habit_Tracker_App.Data;
-using Habit_Tracker_App.View;
 using System.Collections.Generic;
 
-namespace Habit_Tracker_App
+namespace Habit_Tracker_App.View
 {
     public static class MenuView
     {
@@ -35,13 +34,16 @@ namespace Habit_Tracker_App
                         habitController.InsertHabit();
                         break;
                     case "2":
+                        habitController.DeleteHabit();
                         break;
                     case "3":
+                        habitController.UpdateHabit();
                         break;
                     case "4":
                         habitController.GetHabits();
                         break;
                     case "0":
+                        Console.WriteLine("Exiting...");
                         exitMenu = true;
                         break;
                     default:
