@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Habit_Tracker_App.Data
 {
@@ -17,16 +13,27 @@ namespace Habit_Tracker_App.Data
 
         public void InsertHabit()
         {
-            var updatedHabit = View.InsertHabitView.InsertHabitDetails();
-            _habitService.UpdateHabit(updatedHabit);
+            var habit = View.InsertHabitView.InsertHabitDetails();
+            _habitService.AddHabit(habit);
             Console.WriteLine("Habit added successfully.");
         }
+
         public void GetHabits()
         {
             var habits = _habitService.GetHabits();
-            View.GetHabitsView.GetHabitsDetails(habits);
+            View.GetHabitsView.DisplayHabits(habits);
         }
 
-        // Other methods: InsertHabit, DeleteHabit, ViewHabits
+        public void DeleteHabit(int habitId)
+        {
+            _habitService.DeleteHabitRecord(habitId);
+            Console.WriteLine("Habit deleted successfully.");
+        }
+
+        public void UpdateHabit(Habit habit)
+        {
+            _habitService.UpdateHabit(habit);
+            Console.WriteLine("Habit updated successfully.");
+        }
     }
 }

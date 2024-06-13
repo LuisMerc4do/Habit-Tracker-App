@@ -1,4 +1,6 @@
-﻿namespace Habit_Tracker_App.Data
+﻿using System.Collections.Generic;
+
+namespace Habit_Tracker_App.Data
 {
     public class HabitService
     {
@@ -14,18 +16,16 @@
             _repository.AddHabit(habit);
         }
 
-        public void DeleteHabitRecord(Habit habit)
+        public void DeleteHabitRecord(int habitId)
         {
-            _repository.DeleteHabitRecord(habit);
+            _repository.DeleteHabitRecord(habitId);
         }
-        public void DeleteHabitCategory(Habit habit)
-        {
-            _repository.DeleteHabitCategory(habit);
-        }
+
         public void UpdateHabit(Habit habit)
         {
             _repository.UpdateHabit(habit);
         }
+
         public List<Habit> GetHabits()
         {
             return _repository.GetHabits();
