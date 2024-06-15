@@ -4,7 +4,7 @@
 
 The Habit Tracking App is a simple console-based application built using C# with .NET Framework. Its purpose is to help users track their habits by recording daily activities and providing insights into their progress over time. The application uses SQLite for data storage and implements the repository pattern for data access.
 
-Functionality
+#Functionality
 
 Add Habit: Allows users to add a new habit by specifying its name and quantity (e.g., repetitions, minutes spent).
 
@@ -16,7 +16,7 @@ Update Habit: Enables users to update an existing habit record, including its na
 
 View Habits: Displays a list of all habits recorded, including details like ID, name, date, and quantity.
 
-Technologies Used
+#Technologies Used
 
 C#: Programming language used for application logic.
 
